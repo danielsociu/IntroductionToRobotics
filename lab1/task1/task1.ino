@@ -4,6 +4,10 @@
 const int potRed = A0;
 const int potGreen = A1;
 const int potBlue = A2;
+const int minAnalogValue = 0;
+const int maxAnalogValue = 1023;
+const int minRGBOutputValue = 0;
+const int maxRGBOutputValue = 255;
 
 void setup() {
   // put your setup code here, to run once:
@@ -19,21 +23,19 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // reading the values of the potentiometers
   int potValueRed = analogRead(potRed);
   int potValueGreen = analogRead(potGreen);
   int potValueBlue = analogRead(potBlue);
 
-  set_RGB(potValueRed / 4, potValueGreen / 4, potValueBlue / 4);
+  // converting the values of the potentiometers to RGB range
+  int redValue = map(potValueRed, minAnalogValue, maxAnalogValue, minRGBOutputValue, maxRGBOutputValue);
+  int greenValue = map(potValueGreen, minAnalogValue, maxAnalogValue, minRGBOutputValue, maxRGBOutputValue);
+  int blueValue = map(potValueBlue, minAnalogValue, maxAnalogValue, minRGBOutputValue, maxRGBOutputValue);
 
-  Serial.print("(");
-  Serial.print(potValueRed / 4);
-  Serial.print(", ");
-  Serial.print(potValueGreen / 4);
-  Serial.print(", ");
-  Serial.print(potValueBlue / 4);
-  Serial.println(")");
+  print_RGB(redValue, greenValue, blueValue);
 
+  set_RGB(redValue, greenValue, blueValue);
 }
 
 void set_RGB(int red, int green, int blue)
@@ -42,4 +44,15 @@ void set_RGB(int red, int green, int blue)
   analogWrite(ledRed, red);
   analogWrite(ledGreen, green);
   analogWrite(ledBlue, blue); 
+}
+
+void print_RGB(int red, int green, int blue)
+{
+  Serial.print("(");
+  Serial.print(red);
+  Serial.print(", ");
+  Serial.print(green);
+  Serial.print(", ");
+  Serial.print(blue);
+  Serial.println(")");
 }

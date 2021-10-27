@@ -9,6 +9,7 @@ Items used:
 * arduino uno
 * one breadboard 
 * 3 potentiometers
+* 3 resistors (220)
 * 1 RGB led 
 * 18 connectivity cables  
 
@@ -22,6 +23,8 @@ Then I sent those values to the RGB led through the digital out (with pwm, ~9, ~
 1. First we get 5V and the ground to a column on the breadboard through which I power all my potentiometers.  
 2. Then I connect all the potentiometers' output to the analog in A0, A1, A2 representing red, green and blue.
     - here the code that loops makes changes on the output and sends it to led
-3. Sending the RGB values to the led with the digital out ports ~9,~10 and ~11, which also power the led.
+3. Sending the RGB values to the led with the digital out ports ~9,~10 and ~11, which also power the led. Since each out is 5V we need resistors for the extra voltage.  
+
+[Demonstration video](https://www.youtube.com/watch?v=gF32hki-3Qw)
 
 ## Task 2
