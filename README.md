@@ -11,7 +11,7 @@ Items used:
     - 1 RGB led 
     - 18 connectivity cables.
 
-### [Coding:](blob/master/lab1/task1/task1.ino)
+### [Coding:](lab1/task1/task1.ino)
 What I did was take the values from the potentiometers (analog in A0, A1, A2), since they take values from 0-1023 I had to divide the value by 4 so it converts to RGB range.  
 Then I sent those values to the RGB led through the digital out (with pwm, ~9, ~10, ~11), and also printed them with Serial.print.
 
