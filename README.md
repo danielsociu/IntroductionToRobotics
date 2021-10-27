@@ -24,4 +24,4 @@ Then I sent those values to the RGB led through the digital out (with pwm, ~9, ~
     - here the code that loops makes changes on the output and sends it to led
 3. Sending the RGB values to the led with the digital out ports ~9,~10 and ~11, which also power the led.
 
-## Task 1
+## Task 2
