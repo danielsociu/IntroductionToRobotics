@@ -3,9 +3,15 @@ This repository represents my progress throughout the 3rd year university course
 Since it's a robotics repo, firstly it will have the source code and details about the implementation.
 
 ## Task 1
-This task is about making an RGB led that has it's leds controlled by 3 different potentiometers. 
+This task is about making an RGB led that has it's leds controlled by 3 different potentiometers.  
+Items used: 
+    - arduino uno
+    - one breadboard 
+    - 3 potentiometers
+    - 1 RGB led 
+    - 18 connectivity cables.
 
-### Coding:
+### [Coding:](blob/master/lab1/task1/task1.ino)
 What I did was take the values from the potentiometers (analog in A0, A1, A2), since they take values from 0-1023 I had to divide the value by 4 so it converts to RGB range.  
 Then I sent those values to the RGB led through the digital out (with pwm, ~9, ~10, ~11), and also printed them with Serial.print.
 
