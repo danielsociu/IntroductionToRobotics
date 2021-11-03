@@ -65,7 +65,10 @@ We also have 3 functions, one for writing to the leds, one for making a led blin
 1. Button that has a connection type PULLUP. Initializes state 2 of the program
 2. Pedestrian semaphore
 3. Car semaphore
-4. The active buzzer for the pedestrian semaphore.
+4. The active buzzer for the pedestrian semaphore.  
+
+We use only one resistor for the semaphores because we have them in parallel and it only lights one led at a time per semaphore.  
+We connect the leds, the buzzer and the button to the digital ports on arduino, the button being the only input.  
 
 [Demonstration video](https://youtube.com/watch?v=JWWpOgTnioQ&feature=share)
 
