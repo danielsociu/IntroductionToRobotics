@@ -73,3 +73,37 @@ We connect the leds, the buzzer and the button to the digital ports on arduino, 
 [Demonstration video](https://youtube.com/watch?v=JWWpOgTnioQ&feature=share)
 
 </details>
+
+## Task 3
+<details>
+<summary>Third task details </summary> <br>
+This task implements a simple EMF detector which displays the value read on a scale from 0 to 9 with a 7 segment digit display and also uses a buzzer for signaling the intensity.  
+
+Items used:  
+
+* 1 EMF antenna (homemade, basically a copper cable)
+* 1 active buzzer
+* 1 7-segment digit display
+* 3 resistors of 1M Ohm (for the EMF antenna)
+* 1 resistor of 100 Ohm (for buzzer)
+* 2 resistors of 330 Ohm (for display)  
+
+### [Coding:](lab3/task3/task3.ino)
+
+After the variable and constansts declarations we have a function for displaying a specific number. It spesifically lights the leds from the 7 segment display such that it represents a number.  
+In the setup we set up the pins and show a default number, that being 0.  
+In the loop we read the value of the EMF antenna and make an average on those values such that our readings are not influenced by only one reading but by multiple of them.  
+Based on that average we decide upon the number displayed and also if there is any EMF detected we will tone the buzzer as well based on that average value of readings.
+
+### Arduino
+![Arduino_image](https://cdn.discordapp.com/attachments/902874706854682637/908045205415002193/unknown.png)  
+
+1. Antenna for EMF detections
+2. The buzzer
+3. The 7 segment digit display.
+
+For the arduino we use ports 2 through 9 for the led segments, port 10 is for the buzzer and the antenna goes into the A5 analog port.  
+We also used 2 breadboards for flexibility.
+
+[Demonstration video](https://youtu.be/ICHUZyCRNBI)
+</details>
