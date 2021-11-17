@@ -138,7 +138,7 @@ First we have all the variables and constant declarations.  After that we have a
 In setup we set the pin modes, add the interrupt to the joystick button and also check the EEPROM.  
 In loop we check in which state we are, based on which we write the number differently, and we check if the joystick came to the inital value,
 so we can reset it.  
-We write the number and write the number to EEPROM with update (writes only if different)  
+We write the number to display and to EEPROM with update (writes only if different)  
 
 ### Arduino
 ![Arduino_image](https://cdn.discordapp.com/attachments/902874706854682637/910629204129902632/unknown.png)
