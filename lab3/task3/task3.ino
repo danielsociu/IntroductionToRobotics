@@ -12,7 +12,7 @@
 #define maxReadings 20
 
 const int antennaPin = A5; // the pin of the antenna
-int readingLimit = 350; // the limit for reading from the analog antenna
+int readingLimit = 300; // the limit for reading from the analog antenna
 int val = 0; // value read from the antenna
 
 int readings[maxReadings]; // readings from which we make an average

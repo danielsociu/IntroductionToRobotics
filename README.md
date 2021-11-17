@@ -2,7 +2,7 @@
 This repository represents my progress throughout the 3rd year university course of robotics at the Faculty of Mathematics and Computer Science, University of Bucharest, entailing all the homeworks and side projects. 
 Since it's a robotics repo, firstly it will have the source code and details about the implementation.
 
-## Task 1
+## Task 1 (RGB led controlled by 3 potentiometers)
 <details>
 <summary>First task details</summary> <br>
 This task is about making an RGB led that has it's leds controlled by 3 different potentiometers.  
@@ -30,7 +30,7 @@ Then I sent those values to the RGB led through the digital out (with pwm, ~9, ~
 [Demonstration video](https://www.youtube.com/watch?v=gF32hki-3Qw)
 </details>
 
-## Task 2
+## Task 2 (Traffic lights simulation for cars and pedestrians)
 <details>
 <summary>Second task details </summary> <br>
 This implements traffic lights for cars and pedestrians. The semaphore for cars has 3 leds and the one for pedestrians has 2 leds.  
@@ -74,7 +74,7 @@ We connect the leds, the buzzer and the button to the digital ports on arduino, 
 
 </details>
 
-## Task 3
+## Task 3 (EMF detector)
 <details>
 <summary>Third task details </summary> <br>
 This task implements a simple EMF detector which displays the value read on a scale from 0 to 9 with a 7 segment digit display and also uses a buzzer for signaling the intensity.  
@@ -107,3 +107,53 @@ We also used 2 breadboards for flexibility.
 
 [Demonstration video](https://youtu.be/ICHUZyCRNBI)
 </details>
+
+## Task 4 (4 digit 7 segment display controlled with joystick)
+<details>
+<summary> Fourth task details </summary>
+This task implements a 4 digit 7-segment display that is controlled with a joystick. Also the digits get their value from a 74hc595 shift register (leaving us many ports on the arduino).  
+The project has 2 states: one in which we select the digit with the joystick, having the dot blink of the current selected.  
+Pressing the joystick button will change the state and we can change the current selected digit, our dot not blinking anymore.  
+
+Items used:  
+
+* 4 digit 7-segment display
+* 74hc595 shift register
+* a joystick
+* 4 resistors for the digits
+* a bunch of cables
+
+### [Coding:](lab4/task4/task4.ino)
+
+First we have all the variables and constant declarations.  After that we have a few functions:  
+
+* writeReg      - writes data to the shift register, which in our case represents a single digit
+* showDigit     - lights just one digit while turns the other off
+* writeNumber   - writes the whole number to the display
+* updateJoystick - checks if the joystick made a move
+* stateSwapISR  - the interrupt called upon pressing the joystick button
+* checkDisplayDigitsValues - checks the number stored in EEPROM
+* writeDisplayDigitsValues - writes the number stored in EEPROM  
+
+In setup we set the pin modes, add the interrupt to the joystick button and also check the EEPROM.  
+In loop we check in which state we are, based on which we write the number differently, and we check if the joystick came to the inital value,
+so we can reset it.  
+We write the number and write the number to EEPROM with update (writes only if different)  
+
+### Arduino
+![Arduino_image](https://cdn.discordapp.com/attachments/902874706854682637/910629204129902632/unknown.png)
+
+1. The 74hc595 shift register
+2. The 4 digit 7-segment display
+3. The joystick  
+
+Basically the shift register out pins are powering the segments of the 4 digit 7-segment display,
+while digit control pins are connected to arduino.  
+The joystick let's us control the numbers on the arduino.  
+
+
+[Demonstration video](https://youtu.be/IhEYqyeX5Cc)
+
+</details>
+
+
